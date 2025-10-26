@@ -34,16 +34,14 @@ if (!empty($carrinho)) {
     $stmt = $pdo->prepare("SELECT cupcakeID, nome, preco, urlImagem FROM Cupcakes WHERE cupcakeID IN ($placeholders)");
     $stmt->execute($produtoIDs);
     
-    // --- CORREÇÃO INICIA AQUI ---
-    // 1. Buscamos os produtos como um array associativo padrão.
+    
     $produtos_from_db = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $produtos = [];
     // 2. Reorganizamos o array para que a chave seja o ID do produto, facilitando a busca.
     foreach ($produtos_from_db as $p) {
         $produtos[$p['cupcakeID']] = $p;
     }
-    // --- FIM DA CORREÇÃO ---
-
+    
     foreach ($carrinho as $id => $quantidade) {
         if(isset($produtos[$id])) {
             // 3. Acessamos o produto diretamente, sem o índice [0] que causava o problema.
@@ -56,7 +54,6 @@ if (!empty($carrinho)) {
                 'total' => $totalItem
             ];
         } else {
-            // Se o produto não existe mais no banco de dados, remove do carrinho.
             unset($_SESSION['carrinho'][$id]);
         }
     }
@@ -122,4 +119,3 @@ $totalGeral = $subtotal + $frete;
 <?php endif; ?>
 
 <?php require_once __DIR__ . '/templates/footer.php'; ?>
-
