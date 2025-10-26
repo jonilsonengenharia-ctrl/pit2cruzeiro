@@ -2,12 +2,13 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-require_once __DIR__ . '/../backend/auth.php';
+require_once __DIR__ . '/../backend/auth.php'; 
 
+// Contagem de itens no carrinho
 $total_items = 0;
 if (isset($_SESSION['carrinho'])) {
-    foreach ($_SESSION['carrinho'] as $item) {
-        $total_items += $item['quantidade'];
+    foreach ($_SESSION['carrinho'] as $quantidade) {
+        $total_items += $quantidade;
     }
 }
 ?>
@@ -36,7 +37,7 @@ if (isset($_SESSION['carrinho'])) {
                     $niveisPermitidos = ['admin', 'gerente'];
                     if (in_array(get_user_role(), $niveisPermitidos)): 
                     ?>
-                        <a href="/admin/index.php" class="text-gray-600 hover:text-pink-600 font-semibold">Painel Admin</a>
+                        <a href="/admin/admin_produtos.php" class="text-gray-600 hover:text-pink-600 font-semibold">Painel Admin</a>
                     <?php endif; ?>
                     <a href="/perfil.php" class="text-gray-600 hover:text-pink-600">Meu Perfil</a>
                     <a href="/logout.php" class="text-gray-600 hover:text-pink-600">Sair</a>
@@ -52,4 +53,4 @@ if (isset($_SESSION['carrinho'])) {
             </div>
         </nav>
     </header>
-
+    <main class="container mx-auto px-4 py-8">
