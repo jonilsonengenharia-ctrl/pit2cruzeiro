@@ -49,10 +49,16 @@ require_once __DIR__ . '/templates/header.php';
             <label for="email" class="block text-gray-700">E-mail</label>
             <input type="email" id="email" name="email" required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500">
         </div>
-        <div class="mb-6">
+        <div class="mb-4"> <!-- Alterado de mb-6 para mb-4 -->
             <label for="senha" class="block text-gray-700">Senha</label>
             <input type="password" id="senha" name="senha" required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500">
         </div>
+        
+        <!-- Link de Recuperar Senha Adicionado -->
+        <div class="text-right mb-6">
+            <a href="/recuperar_senha.php" class="text-sm text-pink-500 hover:underline">Esqueci minha senha</a>
+        </div>
+        
         <button type="submit" class="w-full bg-pink-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-pink-600 transition-all duration-300">Entrar</button>
     </form>
     <p class="text-center mt-4">
@@ -61,4 +67,3 @@ require_once __DIR__ . '/templates/header.php';
 </div>
 
 <?php require_once __DIR__ . '/templates/footer.php'; ?>
-
