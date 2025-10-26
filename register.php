@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $erros[] = "As senhas não coincidem.";
     }
 
-    // Se não houver erros, prossegue com o cadastro
+    // Se não houver erros, prossiga com o cadastro
     if (empty($erros)) {
         $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
         
