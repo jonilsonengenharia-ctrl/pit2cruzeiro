@@ -46,7 +46,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit();
         } catch (PDOException $e) {
             $erros[] = "Erro ao atualizar o endereço. Tente novamente.";
-            // error_log($e->getMessage());
         }
     }
 }
@@ -108,3 +107,4 @@ require_once __DIR__ . '/templates/header.php';
 </div>
 
 <?php require_once __DIR__ . '/templates/footer.php'; ?>
+
