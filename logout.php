@@ -13,6 +13,7 @@ if (ini_get("session.use_cookies")) {
     );
 }
 
+// Finalmente, destrói a sessão.
 session_destroy();
 
 // Redireciona o usuário para a página inicial
