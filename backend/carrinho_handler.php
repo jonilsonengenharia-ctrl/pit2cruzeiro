@@ -1,4 +1,5 @@
 <?php
+// backend/carrinho_handler.php
 session_start();
 
 header('Content-Type: application/json');
