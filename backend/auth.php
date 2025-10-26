@@ -12,7 +12,7 @@ function requireLogin() {
     }
 }
 
-// Protege as páginas do painel administrativo
+// NOVA FUNÇÃO: Protege as páginas do painel administrativo
 function requireAdmin() {
     // Primeiro, verifica se o usuário está logado
     if (!isset($_SESSION['usuarioID'])) {
@@ -41,4 +41,3 @@ function get_user_id() {
 function get_user_role() {
     return $_SESSION['nivelAcesso'] ?? null;
 }
-
