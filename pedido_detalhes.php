@@ -1,8 +1,4 @@
 <?php
-// Debug: Linhas para depuração: mostram erros detalhados em vez do genérico "Erro 500"
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-
 require_once __DIR__ . '/backend/db.php';
 require_once __DIR__ . '/backend/auth.php';
 requireLogin();
@@ -99,4 +95,3 @@ require_once __DIR__ . '/templates/header.php';
 </main>
 
 <?php require_once __DIR__ . '/templates/footer.php'; ?>
-
