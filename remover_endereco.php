@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             } else {
                 // Para outros erros de banco de dados
                 $_SESSION['error_message'] = "Ocorreu um erro ao tentar remover o endereço.";
-                
+                // error_log($e->getMessage()); // Opcional: logar o erro real para o desenvolvedor
             }
         }
     }
@@ -32,4 +32,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 header('Location: /perfil.php');
 exit();
 ?>
-
